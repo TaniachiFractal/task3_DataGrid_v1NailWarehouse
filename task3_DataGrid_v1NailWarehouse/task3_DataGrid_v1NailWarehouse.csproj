@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Graphics\nail.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\nail.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,6 +47,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\DataGenerator.cs" />
+    <Compile Include="Classes\Extensions.cs" />
+    <Compile Include="Classes\Misc.cs" />
+    <Compile Include="Forms\AddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddForm.Designer.cs">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\InfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +78,12 @@
     <Compile Include="Models\Nail.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddForm.resx">
+      <DependentUpon>AddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\InfoForm.resx">
       <DependentUpon>InfoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,10 +112,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Graphics\+.ico" />
-    <Content Include="Graphics\edit.ico" />
-    <Content Include="Graphics\nail.ico" />
-    <Content Include="Graphics\x.ico" />
+    <None Include="Resources\x.png" />
+    <None Include="Resources\nail.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\+.png" />
     <None Include="Resources\x.ico" />
     <None Include="Resources\nail.ico" />
     <None Include="Resources\edit.ico" />

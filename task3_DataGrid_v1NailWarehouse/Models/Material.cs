@@ -3,7 +3,7 @@
 namespace task3_DataGrid_v1NailWarehouse.Models
 {
     /// <summary>
-    /// Список вариантов материалов гвоздей
+    /// Варианты материалов гвоздей
     /// </summary>
     public enum Material
     {

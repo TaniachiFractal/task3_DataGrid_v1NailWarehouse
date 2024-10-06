@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D0846CF-9C83-44D2-B175-3A2B3FC9D6A0}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task3_DataGrid_v1NailWarehouse", "task3_DataGrid_v1NailWarehouse\task3_DataGrid_v1NailWarehouse.csproj", "{705DAA0D-217D-43A6-A72C-57BFD277C8C2}"

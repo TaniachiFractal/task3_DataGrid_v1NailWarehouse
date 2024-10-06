@@ -63,9 +63,9 @@ namespace task3_DataGrid_v1NailWarehouse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _ {
+        internal static System.Drawing.Bitmap addIco {
             get {
-                object obj = ResourceManager.GetObject("+", resourceCulture);
+                object obj = ResourceManager.GetObject("addIco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace task3_DataGrid_v1NailWarehouse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit {
+        internal static System.Drawing.Bitmap addPng {
             get {
-                object obj = ResourceManager.GetObject("edit", resourceCulture);
+                object obj = ResourceManager.GetObject("addPng", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace task3_DataGrid_v1NailWarehouse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap nail {
+        internal static System.Drawing.Bitmap editIco {
             get {
-                object obj = ResourceManager.GetObject("nail", resourceCulture);
+                object obj = ResourceManager.GetObject("editIco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,49 @@ namespace task3_DataGrid_v1NailWarehouse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap x {
+        internal static System.Drawing.Bitmap editPng {
             get {
-                object obj = ResourceManager.GetObject("x", resourceCulture);
+                object obj = ResourceManager.GetObject("editPng", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nailIco {
+            get {
+                object obj = ResourceManager.GetObject("nailIco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nailPng {
+            get {
+                object obj = ResourceManager.GetObject("nailPng", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap removeIco {
+            get {
+                object obj = ResourceManager.GetObject("removeIco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap removePng {
+            get {
+                object obj = ResourceManager.GetObject("removePng", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

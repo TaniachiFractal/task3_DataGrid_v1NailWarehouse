@@ -23,7 +23,7 @@ namespace task3_DataGrid_v1NailWarehouse.Models
         /// <summary>
         /// Длина в миллиметрах
         /// </summary>
-        public double Length { get; set; }
+        public decimal Length { get; set; }
 
         /// <inheritdoc cref="Models.Material"/>
         public Material Material { get; set; }
@@ -31,16 +31,35 @@ namespace task3_DataGrid_v1NailWarehouse.Models
         /// <summary>
         /// Количество на складе
         /// </summary>
-        public int Count { get; set; }
+        public decimal Count { get; set; }
 
         /// <summary>
         /// Минимальный предел количества
         /// </summary>
-        public int MinCount { get; set; }
+        public decimal MinCount { get; set; }
 
         /// <summary>
         /// Цена без НДС
         /// </summary>
         public decimal Price { get; set; }
+
+        /// <summary>
+        /// Создать копию гвоздя
+        /// </summary>
+        public Nail(Nail nail)
+        {
+            Id = nail.Id;
+            Name = nail.Name;
+            Length = nail.Length;
+            Material = nail.Material;
+            Count = nail.Count;
+            MinCount = nail.MinCount;
+            Price = nail.Price;
+        }
+
+        /// <summary>
+        /// Создать гвоздь
+        /// </summary>
+        public Nail() { }
     }
 }

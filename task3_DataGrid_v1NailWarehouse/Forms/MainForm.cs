@@ -81,7 +81,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
             if (products.Count > 0)
             {
                 var nail = products[nailsDGV.CurrentCell.RowIndex];
-                if (MessageBox.Show($"Вы точно хотите удалить товар \"{nail.Name}\"",
+                if (MessageBox.Show($"Вы точно хотите удалить товар \"{nail.Name}\"?",
                         $"ВНИМАНИЕ", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
                     == DialogResult.OK
                     )
@@ -101,11 +101,11 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
                                      select new
                                      {
                                          Название = p.Name,
-                                         Длина = p.Length,
+                                         ДлинаМм = p.Length,
                                          Материал = p.Material.GetDescription(),
                                          К_во = p.Count,
                                          МинК_во = p.MinCount,
-                                         Цена = p.Price,
+                                         ЦенаРуб = p.Price,
                                          Сумма = p.Price * p.Count
                                      }).ToList();
 
@@ -125,8 +125,8 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
             { summWTax += (product.Price + product.Price * Tax) * product.Count; }
 
             lbCount.Text = $"Позиций: {products.Count}";
-            lbSumWTax.Text = $"Общ. сумма без НДС: {summNoTax} руб";
-            lbSumNoTax.Text = $"Общ. сумма с НДС: {summWTax} руб";
+            lbSumNoTax.Text = $"Общ. сумма без НДС: {summNoTax} руб";
+            lbSumWTax.Text = $"Общ. сумма с НДС: {summWTax} руб";
         }
 
     }

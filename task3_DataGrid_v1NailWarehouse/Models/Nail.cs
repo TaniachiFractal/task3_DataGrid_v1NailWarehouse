@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -12,7 +13,7 @@ namespace task3_DataGrid_v1NailWarehouse.Models
     {
         /// <summary>
         /// Идентификатор гвоздя
-        /// </summary>
+        /// </summary>     
         public Guid Id { get; set; }
 
         /// <summary>

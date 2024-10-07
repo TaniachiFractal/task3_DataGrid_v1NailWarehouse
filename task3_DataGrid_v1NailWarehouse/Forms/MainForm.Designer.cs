@@ -43,8 +43,8 @@
             this.editButton = new System.Windows.Forms.ToolStripButton();
             this.statusAddInfo = new System.Windows.Forms.StatusStrip();
             this.lbCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbSumNoTax = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbSumWTax = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbSumNoTax = new System.Windows.Forms.ToolStripStatusLabel();
             this.nailsDGV = new System.Windows.Forms.DataGridView();
             this.mainMenu.SuspendLayout();
             this.toolAddRemoveEdit.SuspendLayout();
@@ -166,8 +166,8 @@
             this.statusAddInfo.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.statusAddInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lbCount,
-            this.lbSumNoTax,
-            this.lbSumWTax});
+            this.lbSumWTax,
+            this.lbSumNoTax});
             this.statusAddInfo.Location = new System.Drawing.Point(0, 515);
             this.statusAddInfo.Name = "statusAddInfo";
             this.statusAddInfo.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
@@ -181,17 +181,17 @@
             this.lbCount.Size = new System.Drawing.Size(87, 25);
             this.lbCount.Text = "Позиций:";
             // 
-            // lbSumNoTax
-            // 
-            this.lbSumNoTax.Name = "lbSumNoTax";
-            this.lbSumNoTax.Size = new System.Drawing.Size(184, 25);
-            this.lbSumNoTax.Text = "Общ. сумма без НДС:";
-            // 
             // lbSumWTax
             // 
             this.lbSumWTax.Name = "lbSumWTax";
-            this.lbSumWTax.Size = new System.Drawing.Size(165, 25);
-            this.lbSumWTax.Text = "Общ. сумма с НДС:";
+            this.lbSumWTax.Size = new System.Drawing.Size(184, 25);
+            this.lbSumWTax.Text = "Общ. сумма без НДС:";
+            // 
+            // lbSumNoTax
+            // 
+            this.lbSumNoTax.Name = "lbSumNoTax";
+            this.lbSumNoTax.Size = new System.Drawing.Size(165, 25);
+            this.lbSumNoTax.Text = "Общ. сумма с НДС:";
             // 
             // nailsDGV
             // 
@@ -250,7 +250,7 @@
         private System.Windows.Forms.ToolStripMenuItem редактироватьВыбранныйТоварToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьВыбранныйТоварToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel lbCount;
-        private System.Windows.Forms.ToolStripStatusLabel lbSumNoTax;
         private System.Windows.Forms.ToolStripStatusLabel lbSumWTax;
+        private System.Windows.Forms.ToolStripStatusLabel lbSumNoTax;
     }
 }

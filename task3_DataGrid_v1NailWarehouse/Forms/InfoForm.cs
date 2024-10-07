@@ -15,5 +15,15 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
         {
             InitializeComponent();
         }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -101,7 +101,7 @@
             // NameLb
             // 
             this.NameLb.AutoSize = true;
-            this.NameLb.Location = new System.Drawing.Point(21, 131);
+            this.NameLb.Location = new System.Drawing.Point(19, 131);
             this.NameLb.Name = "NameLb";
             this.NameLb.Size = new System.Drawing.Size(96, 25);
             this.NameLb.TabIndex = 1;
@@ -193,16 +193,16 @@
             // LengthLb
             // 
             this.LengthLb.AutoSize = true;
-            this.LengthLb.Location = new System.Drawing.Point(21, 169);
+            this.LengthLb.Location = new System.Drawing.Point(19, 169);
             this.LengthLb.Name = "LengthLb";
-            this.LengthLb.Size = new System.Drawing.Size(106, 25);
+            this.LengthLb.Size = new System.Drawing.Size(100, 25);
             this.LengthLb.TabIndex = 9;
-            this.LengthLb.Text = "Размер, мм:";
+            this.LengthLb.Text = "Длина, мм:";
             // 
             // MaterialLb
             // 
             this.MaterialLb.AutoSize = true;
-            this.MaterialLb.Location = new System.Drawing.Point(21, 209);
+            this.MaterialLb.Location = new System.Drawing.Point(19, 209);
             this.MaterialLb.Name = "MaterialLb";
             this.MaterialLb.Size = new System.Drawing.Size(97, 25);
             this.MaterialLb.TabIndex = 10;
@@ -211,7 +211,7 @@
             // CountLb
             // 
             this.CountLb.AutoSize = true;
-            this.CountLb.Location = new System.Drawing.Point(21, 249);
+            this.CountLb.Location = new System.Drawing.Point(19, 249);
             this.CountLb.Name = "CountLb";
             this.CountLb.Size = new System.Drawing.Size(164, 25);
             this.CountLb.TabIndex = 11;
@@ -220,7 +220,7 @@
             // minCountLb
             // 
             this.minCountLb.AutoSize = true;
-            this.minCountLb.Location = new System.Drawing.Point(21, 288);
+            this.minCountLb.Location = new System.Drawing.Point(19, 288);
             this.minCountLb.Name = "minCountLb";
             this.minCountLb.Size = new System.Drawing.Size(118, 25);
             this.minCountLb.TabIndex = 12;
@@ -229,11 +229,11 @@
             // priceLb
             // 
             this.priceLb.AutoSize = true;
-            this.priceLb.Location = new System.Drawing.Point(21, 327);
+            this.priceLb.Location = new System.Drawing.Point(19, 327);
             this.priceLb.Name = "priceLb";
-            this.priceLb.Size = new System.Drawing.Size(131, 25);
+            this.priceLb.Size = new System.Drawing.Size(169, 25);
             this.priceLb.TabIndex = 13;
-            this.priceLb.Text = "Цена без НДС:";
+            this.priceLb.Text = "Цена без НДС, руб:";
             // 
             // panelBottom
             // 

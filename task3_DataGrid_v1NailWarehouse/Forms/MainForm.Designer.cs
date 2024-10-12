@@ -223,6 +223,7 @@
             this.nailsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.nailsDGV.Size = new System.Drawing.Size(806, 462);
             this.nailsDGV.TabIndex = 3;
+            this.nailsDGV.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.nailsDGV_CellFormatting);
             // 
             // NameColumn
             // 
@@ -272,6 +273,7 @@
             // 
             // SummaryColumn
             // 
+            this.SummaryColumn.DataPropertyName = "Summary";
             this.SummaryColumn.HeaderText = "Сумма без НДС, руб";
             this.SummaryColumn.Name = "SummaryColumn";
             this.SummaryColumn.ReadOnly = true;

@@ -66,7 +66,6 @@ namespace task3_DataGrid_v1NailWarehouse.Memory
         /// <summary>
         /// Асинхронно получить весь список <see cref="Nail"/>
         /// </summary>
-        /// <returns></returns>
         public Task<IReadOnlyCollection<Nail>> GetAllAsync()
             => Task.FromResult<IReadOnlyCollection<Nail>>(nails);
 

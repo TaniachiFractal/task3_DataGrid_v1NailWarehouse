@@ -290,9 +290,12 @@
             this.Controls.Add(this.lengthNUD);
             this.Controls.Add(this.minCountNUD);
             this.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.MinimizeBox = false;
             this.Name = "NailDataEditForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Данные товара";
             this.panelBottom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureNail)).EndInit();

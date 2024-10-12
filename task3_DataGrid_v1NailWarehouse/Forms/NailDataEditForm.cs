@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using task3_DataGrid_v1NailWarehouse.Classes;
 using task3_DataGrid_v1NailWarehouse.Models;
@@ -43,8 +38,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
                     Price = outNail.Price,
                 };
 
-            foreach (var item in Enum.GetValues(typeof(Material)))
-            { materialCB.Items.Add(item); }
+            materialCB.DataSource = Enum.GetValues(typeof(Material));
 
             nameTb.AddBinding(target => target.Text, currNail, nail => nail.Name, errorProvider);
             lengthNUD.AddBinding(target => target.Value, currNail, nail => nail.Length);
@@ -67,8 +61,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
                 e.Font,
                 new SolidBrush(e.ForeColor),
                 e.Bounds.X,
-                e.Bounds.Y + 2);
-
+                e.Bounds.Y + Constants.ComboboxYmargin);
 
         }
 
@@ -77,8 +70,24 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
         /// </summary>
         private void OkButton_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            Close();
+            var success = true;
+            foreach (Control c in Controls)
+            {
+                if (errorProvider.GetError(c).Length > 0)
+                {
+                    success = false;
+                    break;
+                }
+            }
+
+            if (success)
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            else
+            { Close(); }
+
         }
 
     }

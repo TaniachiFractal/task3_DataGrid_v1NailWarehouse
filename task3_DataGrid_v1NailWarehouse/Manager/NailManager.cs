@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using task3_DataGrid_v1NailWarehouse.Classes;
 using task3_DataGrid_v1NailWarehouse.Interfaces;
@@ -65,7 +64,7 @@ namespace task3_DataGrid_v1NailWarehouse.Manager
             {
                 FullCount = result.Count,
                 FullSummaryNoTax = result.Sum(nail => nail.Price * nail.Count),
-                FullSummaryWithTax = result.Sum(nail => (nail.Price + nail.Price * Constants.Tax) * nail.Count),
+                FullSummaryWithTax = result.Sum(nail => (nail.Price + (nail.Price * Constants.Tax)) * nail.Count),
             };
         }
     }

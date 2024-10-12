@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
 
 namespace task3_DataGrid_v1NailWarehouse.Models
 {
@@ -21,7 +17,7 @@ namespace task3_DataGrid_v1NailWarehouse.Models
         /// Название товара
         /// </summary>
         [Required(ErrorMessage = "Введите название")]
-        [StringLength(100)]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Название - строка от 3 до 50 символов")]
         public string Name { get; set; }
 
         /// <summary>

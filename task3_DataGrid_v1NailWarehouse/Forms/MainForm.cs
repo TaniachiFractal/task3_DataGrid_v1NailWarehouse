@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using task3_DataGrid_v1NailWarehouse.Classes;
 using task3_DataGrid_v1NailWarehouse.Interfaces;
 using task3_DataGrid_v1NailWarehouse.Models;
 
@@ -12,6 +13,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
     public partial class MainForm : Form
     {
         private readonly INailManager nailManager;
+
         private readonly BindingSource nailBindingSource;
 
         /// <summary>
@@ -25,32 +27,49 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
             nailBindingSource = new BindingSource();
 
             nailsDGV.DataSource = nailBindingSource;
-
             nailsDGV.AutoGenerateColumns = false;
+
+            UpdateData();
         }
 
         private async Task SetStats()
         {
             var result = await nailManager.GetStatsAsync();
             lbCount.Text = $"Позиций: {result.FullCount}";
-            lbSumWTax.Text = $"Общ. сумма с НДС: {result.FullSummaryWithTax}";
-            lbSumNoTax.Text = $"Общ. сумма без НДС: {result.FullSummaryNoTax}";
+            lbSumWTax.Text = $"Общ. сумма с НДС: {result.FullSummaryWithTax} руб";
+            lbSumNoTax.Text = $"Общ. сумма без НДС: {result.FullSummaryNoTax} руб";
+        }
+
+        private async void UpdateData()
+        {
+            nailBindingSource.ResetBindings(false);
+            await SetStats();
+        }
+
+        private Nail GetSelectedNail()
+        {
+            return (Nail)nailsDGV.Rows[nailsDGV.SelectedRows[0].Index].DataBoundItem;
         }
 
         #region control events
 
+        private void nailsDGV_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (nailsDGV.Columns[e.ColumnIndex].Name == nameof(MaterialColumn))
+            {
+                var row = (Nail)nailsDGV.Rows[e.RowIndex].DataBoundItem;
+                e.Value = row.Material.GetDescription();
+            }
+            else if (nailsDGV.Columns[e.ColumnIndex].Name == nameof(SummaryColumn))
+            {
+                var row = (Nail)nailsDGV.Rows[e.RowIndex].DataBoundItem;
+                e.Value = row.Count * row.Price;
+            }
+        }
+
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            var source = await nailManager.GetAllAsync();
-
-            var sourceQuery = (from source
-                               select new
-                               {
-
-                               }).ToList();
-
-            nailBindingSource.DataSource 
-            await SetStats();
+            nailBindingSource.DataSource = await nailManager.GetAllAsync();
         }
 
         private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -66,11 +85,10 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
         private async void addButton_Click(object sender, EventArgs e)
         {
             var nailDataEditForm = new NailDataEditForm();
-            if (nailDataEditForm.ShowDialog() == DialogResult.OK)
+            if (nailDataEditForm.ShowDialog(this) == DialogResult.OK)
             {
                 await nailManager.AddAsync(nailDataEditForm.CurrNail);
-                nailBindingSource.ResetBindings(false);
-                await SetStats();
+                UpdateData();
             }
         }
 
@@ -78,13 +96,12 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
         {
             if (nailsDGV.SelectedRows.Count > 0)
             {
-                var nail = (Nail)nailsDGV.Rows[nailsDGV.SelectedRows[0].Index].DataBoundItem;
-                var nailDataEditForm = new NailDataEditForm(nail);
-                if (nailDataEditForm.ShowDialog() == DialogResult.OK)
+                var nail = GetSelectedNail();
+                var nailDataEditForm = new NailDataEditForm((Nail)nail);
+                if (nailDataEditForm.ShowDialog(this) == DialogResult.OK)
                 {
                     await nailManager.EditAsync(nailDataEditForm.CurrNail);
-                    nailBindingSource.ResetBindings(false);
-                    await SetStats();
+                    UpdateData();
                 }
             }
         }
@@ -93,7 +110,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
         {
             if (nailsDGV.SelectedRows.Count > 0)
             {
-                var nail = (Nail)nailsDGV.Rows[nailsDGV.SelectedRows[0].Index].DataBoundItem;
+                var nail = GetSelectedNail();
                 if (MessageBox.Show(
                     $"Точно удалить товар \"{nail.Name}\"?",
                     "ВНИМАНИЕ",
@@ -102,8 +119,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
                     ) == DialogResult.OK)
                 {
                     await nailManager.DeleteAsync(nail.Id);
-                    nailBindingSource.ResetBindings(false);
-                    await SetStats();
+                    UpdateData();
                 }
             }
         }

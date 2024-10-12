@@ -46,6 +46,13 @@
             this.lbSumWTax = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbSumNoTax = new System.Windows.Forms.ToolStripStatusLabel();
             this.nailsDGV = new System.Windows.Forms.DataGridView();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LengthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MinCountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SummaryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainMenu.SuspendLayout();
             this.toolAddRemoveEdit.SuspendLayout();
             this.statusAddInfo.SuspendLayout();
@@ -195,16 +202,80 @@
             // 
             // nailsDGV
             // 
+            this.nailsDGV.AllowUserToAddRows = false;
+            this.nailsDGV.AllowUserToDeleteRows = false;
             this.nailsDGV.BackgroundColor = System.Drawing.Color.PaleGoldenrod;
             this.nailsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.nailsDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NameColumn,
+            this.LengthColumn,
+            this.MaterialColumn,
+            this.CountColumn,
+            this.MinCountColumn,
+            this.PriceColumn,
+            this.SummaryColumn});
             this.nailsDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nailsDGV.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.nailsDGV.Location = new System.Drawing.Point(0, 53);
             this.nailsDGV.Margin = new System.Windows.Forms.Padding(2);
             this.nailsDGV.Name = "nailsDGV";
             this.nailsDGV.ReadOnly = true;
+            this.nailsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.nailsDGV.Size = new System.Drawing.Size(806, 462);
             this.nailsDGV.TabIndex = 3;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.DataPropertyName = "Name";
+            this.NameColumn.HeaderText = "Название";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            // 
+            // LengthColumn
+            // 
+            this.LengthColumn.DataPropertyName = "Length";
+            this.LengthColumn.HeaderText = "Длина, мм";
+            this.LengthColumn.Name = "LengthColumn";
+            this.LengthColumn.ReadOnly = true;
+            // 
+            // MaterialColumn
+            // 
+            this.MaterialColumn.DataPropertyName = "Material";
+            this.MaterialColumn.HeaderText = "Материал";
+            this.MaterialColumn.Name = "MaterialColumn";
+            this.MaterialColumn.ReadOnly = true;
+            this.MaterialColumn.Width = 80;
+            // 
+            // CountColumn
+            // 
+            this.CountColumn.DataPropertyName = "Count";
+            this.CountColumn.HeaderText = "К-во";
+            this.CountColumn.Name = "CountColumn";
+            this.CountColumn.ReadOnly = true;
+            this.CountColumn.Width = 90;
+            // 
+            // MinCountColumn
+            // 
+            this.MinCountColumn.DataPropertyName = "MinCount";
+            this.MinCountColumn.HeaderText = "Мин к-во";
+            this.MinCountColumn.Name = "MinCountColumn";
+            this.MinCountColumn.ReadOnly = true;
+            this.MinCountColumn.Width = 90;
+            // 
+            // PriceColumn
+            // 
+            this.PriceColumn.DataPropertyName = "Price";
+            this.PriceColumn.HeaderText = "Цена без НДС, руб";
+            this.PriceColumn.Name = "PriceColumn";
+            this.PriceColumn.ReadOnly = true;
+            this.PriceColumn.Width = 145;
+            // 
+            // SummaryColumn
+            // 
+            this.SummaryColumn.HeaderText = "Сумма без НДС, руб";
+            this.SummaryColumn.Name = "SummaryColumn";
+            this.SummaryColumn.ReadOnly = true;
+            this.SummaryColumn.Width = 150;
             // 
             // MainForm
             // 
@@ -221,6 +292,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Склад Гвоздей";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             this.toolAddRemoveEdit.ResumeLayout(false);
@@ -252,5 +324,12 @@
         private System.Windows.Forms.ToolStripStatusLabel lbCount;
         private System.Windows.Forms.ToolStripStatusLabel lbSumWTax;
         private System.Windows.Forms.ToolStripStatusLabel lbSumNoTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LengthColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CountColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MinCountColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PriceColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SummaryColumn;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -19,6 +20,8 @@ namespace task3_DataGrid_v1NailWarehouse.Models
         /// <summary>
         /// Название товара
         /// </summary>
+        [Required(ErrorMessage = "Введите название")]
+        [StringLength(100)]
         public string Name { get; set; }
 
         /// <summary>

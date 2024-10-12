@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using task3_DataGrid_v1NailWarehouse.Classes;
+using task3_DataGrid_v1NailWarehouse.Interfaces;
 using task3_DataGrid_v1NailWarehouse.Models;
 
 namespace task3_DataGrid_v1NailWarehouse.Forms
@@ -13,32 +11,47 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
     /// </summary>
     public partial class MainForm : Form
     {
-        /// <summary>
-        /// НДС в долях
-        /// </summary>
-        const decimal Tax = 0.2M;
+        private readonly INailManager nailManager;
+        private readonly BindingSource nailBindingSource;
 
         /// <summary>
-        /// Список объектов типа <see cref="Models.Nail" />
+        /// Инициализация формы 
         /// </summary>
-        private List<Nail> products;
-
-        /// <summary>
-        /// Выбранный товар
-        /// </summary>
-        private Nail selectedNail;
-
-        /// <summary>
-        /// Инициализация формы и массива товаров
-        /// </summary>
-        public MainForm()
+        public MainForm(INailManager manager)
         {
             InitializeComponent();
-            products = new List<Nail>();
-            UpdateOutputData();
+
+            nailManager = manager;
+            nailBindingSource = new BindingSource();
+
+            nailsDGV.DataSource = nailBindingSource;
+
+            nailsDGV.AutoGenerateColumns = false;
+        }
+
+        private async Task SetStats()
+        {
+            var result = await nailManager.GetStatsAsync();
+            lbCount.Text = $"Позиций: {result.FullCount}";
+            lbSumWTax.Text = $"Общ. сумма с НДС: {result.FullSummaryWithTax}";
+            lbSumNoTax.Text = $"Общ. сумма без НДС: {result.FullSummaryNoTax}";
         }
 
         #region control events
+
+        private async void MainForm_Load(object sender, EventArgs e)
+        {
+            var source = await nailManager.GetAllAsync();
+
+            var sourceQuery = (from source
+                               select new
+                               {
+
+                               }).ToList();
+
+            nailBindingSource.DataSource 
+            await SetStats();
+        }
 
         private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -50,84 +63,52 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
             Close();
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private async void addButton_Click(object sender, EventArgs e)
         {
-            var addForm = new AddForm();
-            if (addForm.ShowDialog() == DialogResult.OK)
+            var nailDataEditForm = new NailDataEditForm();
+            if (nailDataEditForm.ShowDialog() == DialogResult.OK)
             {
-                products.Add(addForm.NewNail);
+                await nailManager.AddAsync(nailDataEditForm.CurrNail);
+                nailBindingSource.ResetBindings(false);
+                await SetStats();
             }
-
-            UpdateOutputData();
         }
 
-        private void editButton_Click(object sender, EventArgs e)
+        private async void editButton_Click(object sender, EventArgs e)
         {
-            if (products.Count > 0)
+            if (nailsDGV.SelectedRows.Count > 0)
             {
-                var nail = new Nail(products[nailsDGV.CurrentCell.RowIndex]);
-                var editForm = new EditForm(nail);
-                if (editForm.ShowDialog() == DialogResult.OK)
+                var nail = (Nail)nailsDGV.Rows[nailsDGV.SelectedRows[0].Index].DataBoundItem;
+                var nailDataEditForm = new NailDataEditForm(nail);
+                if (nailDataEditForm.ShowDialog() == DialogResult.OK)
                 {
-                    products[nailsDGV.CurrentCell.RowIndex] = editForm.SelectedNail;
+                    await nailManager.EditAsync(nailDataEditForm.CurrNail);
+                    nailBindingSource.ResetBindings(false);
+                    await SetStats();
                 }
             }
-
-            UpdateOutputData();
         }
 
-        private void removeButton_Click(object sender, EventArgs e)
+        private async void removeButton_Click(object sender, EventArgs e)
         {
-            if (products.Count > 0)
+            if (nailsDGV.SelectedRows.Count > 0)
             {
-                var nail = products[nailsDGV.CurrentCell.RowIndex];
-                if (MessageBox.Show($"Вы точно хотите удалить товар \"{nail.Name}\"?",
-                        $"ВНИМАНИЕ", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
-                    == DialogResult.OK
-                    )
+                var nail = (Nail)nailsDGV.Rows[nailsDGV.SelectedRows[0].Index].DataBoundItem;
+                if (MessageBox.Show(
+                    $"Точно удалить товар \"{nail.Name}\"?",
+                    "ВНИМАНИЕ",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning
+                    ) == DialogResult.OK)
                 {
-                    products.Remove(nail);
+                    await nailManager.DeleteAsync(nail.Id);
+                    nailBindingSource.ResetBindings(false);
+                    await SetStats();
                 }
             }
-
-            UpdateOutputData();
         }
 
         #endregion
-
-        private void UpdateOutputData()
-        {
-            var productsLinqQuery = (from p in products
-                                     select new
-                                     {
-                                         Название = p.Name,
-                                         ДлинаМм = p.Length,
-                                         Материал = p.Material.GetDescription(),
-                                         К_во = p.Count,
-                                         МинК_во = p.MinCount,
-                                         ЦенаРуб = p.Price,
-                                         Сумма = p.Price * p.Count
-                                     }).ToList();
-
-            nailsDGV.DataSource = productsLinqQuery;
-
-            foreach (DataGridViewColumn col in nailsDGV.Columns)
-            {
-                col.HeaderText = Misc.CamelCaseToNormalCaseAndUnderscoreToHyphen(col.HeaderText);
-            }
-
-            var summNoTax = 0M;
-            foreach (var product in products)
-            { summNoTax += product.Price * product.Count; }
-
-            var summWTax = 0M;
-            foreach (var product in products)
-            { summWTax += (product.Price + product.Price * Tax) * product.Count; }
-
-            lbCount.Text = $"Позиций: {products.Count}";
-            lbSumNoTax.Text = $"Общ. сумма без НДС: {summNoTax} руб";
-            lbSumWTax.Text = $"Общ. сумма с НДС: {summWTax} руб";
-        }
 
     }
 }

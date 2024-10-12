@@ -9,7 +9,7 @@ namespace task3_DataGrid_v1NailWarehouse.Classes
     public static class DataGenerator
     {
         /// <summary>
-        /// Сгенерировать гвоздь по стандартным параметрам или по заданным
+        /// Сгенерировать <see cref="Nail"/> по стандартным параметрам или по заданным
         /// </summary>
         public static Nail CreateNail(Action<Nail> addInfo = null)
         {

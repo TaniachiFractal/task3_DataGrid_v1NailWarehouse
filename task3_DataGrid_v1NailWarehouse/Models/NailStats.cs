@@ -8,17 +8,17 @@ namespace task3_DataGrid_v1NailWarehouse.Models
     public class NailStats : INailStats
     {
         /// <summary>
-        /// Общее количество позиций
+        /// <inheritdoc cref="INailStats.FullCount"/>
         /// </summary>
         public decimal FullCount { get; set; }
 
         /// <summary>
-        /// Общая сумма без НДС
+        /// <inheritdoc cref="INailStats.FullSummaryNoTax"/>
         /// </summary>
         public decimal FullSummaryNoTax { get; set; }
 
         /// <summary>
-        /// Общая сумма с НДС
+        /// <inheritdoc cref="INailStats.FullSummaryWithTax"/>
         /// </summary>
         public decimal FullSummaryWithTax { get; set; }
     }

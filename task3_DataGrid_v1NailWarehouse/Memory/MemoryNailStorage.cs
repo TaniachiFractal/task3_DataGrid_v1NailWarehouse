@@ -23,7 +23,7 @@ namespace task3_DataGrid_v1NailWarehouse.Memory
         }
 
         /// <summary>
-        /// Асинхронно добавить <see cref="Nail"/> в хранилище
+        /// <inheritdoc cref="INailStorage.AddAsync(Nail)"/>
         /// </summary>
         public Task<Nail> AddAsync(Nail nail)
         {
@@ -32,7 +32,7 @@ namespace task3_DataGrid_v1NailWarehouse.Memory
         }
 
         /// <summary>
-        /// Асинхронно удалить <see cref="Nail"/> из хранилища
+        /// <inheritdoc cref="INailStorage.DeleteAsync(Guid)"/>
         /// </summary>
         public Task<bool> DeleteAsync(Guid id)
         {
@@ -46,7 +46,7 @@ namespace task3_DataGrid_v1NailWarehouse.Memory
         }
 
         /// <summary>
-        /// Асинхронно изменить <see cref="Nail"/> из хранилища
+        /// <inheritdoc cref="INailStorage.EditAsync(Nail)"/>
         /// </summary>
         public Task EditAsync(Nail nail)
         {
@@ -64,7 +64,7 @@ namespace task3_DataGrid_v1NailWarehouse.Memory
         }
 
         /// <summary>
-        /// Асинхронно получить весь список <see cref="Nail"/>
+        /// <inheritdoc cref="INailStorage.GetAllAsync()"/>
         /// </summary>
         public Task<IReadOnlyCollection<Nail>> GetAllAsync()
             => Task.FromResult<IReadOnlyCollection<Nail>>(nails);

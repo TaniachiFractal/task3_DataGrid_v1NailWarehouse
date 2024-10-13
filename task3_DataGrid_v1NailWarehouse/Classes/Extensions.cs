@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace task3_DataGrid_v1NailWarehouse.Classes
 {
@@ -16,17 +20,37 @@ namespace task3_DataGrid_v1NailWarehouse.Classes
         public static void AddBinding<TControl, TSource>(this TControl target,
             Expression<Func<TControl, object>> targetProperty,
             TSource source,
-            Expression<Func<TSource, object>> sourceProperty)
+            Expression<Func<TSource, object>> sourceProperty,
+            ErrorProvider errorProvider = null)
             where TControl : Control
             where TSource : class
         {
             var targetName = GetMemberName(targetProperty);
             var sourceName = GetMemberName(sourceProperty);
-
             target.DataBindings.Add(new Binding(targetName, source, sourceName,
                 false,
                 DataSourceUpdateMode.OnPropertyChanged));
-
+            if (errorProvider != null)
+            {
+                var sourcePropertyInfo = source.GetType().GetProperty(sourceName);
+                var validarors = sourcePropertyInfo.GetCustomAttributes<ValidationAttribute>();
+                if (validarors?.Any() == true)
+                {
+                    target.Validating += (sender, args) =>
+                    {
+                        var context = new ValidationContext(source);
+                        var results = new List<ValidationResult>();
+                        errorProvider.SetError(target, string.Empty);
+                        if (!Validator.TryValidateObject(source, context, results, validateAllProperties: true))
+                        {
+                            foreach (var error in results.Where(x => x.MemberNames.Contains(sourceName)))
+                            {
+                                errorProvider.SetError(target, error.ErrorMessage);
+                            }
+                        }
+                    };
+                }
+            }
         }
 
         /// <summary>

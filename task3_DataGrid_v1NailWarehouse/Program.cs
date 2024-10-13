@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Windows.Forms;
 using task3_DataGrid_v1NailWarehouse.Forms;
+using task3_DataGrid_v1NailWarehouse.Manager;
+using task3_DataGrid_v1NailWarehouse.Memory;
 
 namespace task3_DataGrid_v1NailWarehouse
 {
-    internal static class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            var storage = new MemoryNailStorage();
+            var manager = new NailManager(storage);
+            Application.Run(new MainForm(manager));
         }
     }
 }

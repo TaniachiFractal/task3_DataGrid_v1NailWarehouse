@@ -36,8 +36,8 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
         {
             var result = await nailManager.GetStatsAsync();
             lbCount.Text = $"Позиций: {result.FullCount}";
-            lbSumWTax.Text = $"Общ. сумма с НДС: {result.FullSummaryWithTax} руб";
-            lbSumNoTax.Text = $"Общ. сумма без НДС: {result.FullSummaryNoTax} руб";
+            lbSumWTax.Text = $"Общ. сумма с НДС: {result.FullSummaryWithTax:n2} руб";
+            lbSumNoTax.Text = $"Общ. сумма без НДС: {result.FullSummaryNoTax:n2} руб";
         }
 
         private async void UpdateData()

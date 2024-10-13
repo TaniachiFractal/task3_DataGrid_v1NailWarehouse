@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -235,6 +238,8 @@
             // LengthColumn
             // 
             this.LengthColumn.DataPropertyName = "Length";
+            dataGridViewCellStyle1.Format = "N1";
+            this.LengthColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.LengthColumn.HeaderText = "Длина, мм";
             this.LengthColumn.Name = "LengthColumn";
             this.LengthColumn.ReadOnly = true;
@@ -266,6 +271,9 @@
             // PriceColumn
             // 
             this.PriceColumn.DataPropertyName = "Price";
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.PriceColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.PriceColumn.HeaderText = "Цена без НДС, руб";
             this.PriceColumn.Name = "PriceColumn";
             this.PriceColumn.ReadOnly = true;
@@ -274,6 +282,8 @@
             // SummaryColumn
             // 
             this.SummaryColumn.DataPropertyName = "Summary";
+            dataGridViewCellStyle3.Format = "N2";
+            this.SummaryColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.SummaryColumn.HeaderText = "Сумма без НДС, руб";
             this.SummaryColumn.Name = "SummaryColumn";
             this.SummaryColumn.ReadOnly = true;

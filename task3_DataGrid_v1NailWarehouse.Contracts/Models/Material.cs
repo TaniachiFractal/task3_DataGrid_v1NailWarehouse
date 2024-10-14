@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace task3_DataGrid_v1NailWarehouse.Models
+namespace task3_DataGrid_v1NailWarehouse.Contracts.Models
 {
     /// <summary>
     /// Варианты материалов <see cref="Nail"/>

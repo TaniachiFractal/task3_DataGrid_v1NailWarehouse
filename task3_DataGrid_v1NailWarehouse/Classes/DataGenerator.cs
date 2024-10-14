@@ -1,5 +1,5 @@
 ﻿using System;
-using task3_DataGrid_v1NailWarehouse.Models;
+using task3_DataGrid_v1NailWarehouse.Contracts.Models;
 
 namespace task3_DataGrid_v1NailWarehouse.Classes
 {

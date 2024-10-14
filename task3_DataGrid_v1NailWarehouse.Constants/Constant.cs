@@ -1,9 +1,9 @@
-﻿namespace task3_DataGrid_v1NailWarehouse.Classes
+﻿namespace task3_DataGrid_v1NailWarehouse.Constants
 {
     /// <summary>
     /// Класс констант
     /// </summary>
-    public class Constants
+    public class Constant
     {
         /// <summary>
         /// НДС в долях

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using task3_DataGrid_v1NailWarehouse.Memory;
-using task3_DataGrid_v1NailWarehouse.Models;
+using task3_DataGrid_v1NailWarehouse.Contracts.Models;
 
-namespace task3_DataGrid_v1NailWarehouse.Interfaces
+namespace task3_DataGrid_v1NailWarehouse.Contracts.Interfaces
 {
     /// <summary>
     /// Интерфейс прослойки между <see cref="MemoryNailStorage"/> и представлением

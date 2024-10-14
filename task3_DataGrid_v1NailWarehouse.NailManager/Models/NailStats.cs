@@ -1,6 +1,5 @@
-﻿using task3_DataGrid_v1NailWarehouse.Interfaces;
-
-namespace task3_DataGrid_v1NailWarehouse.Models
+﻿using task3_DataGrid_v1NailWarehouse.Contracts.Interfaces;
+namespace task3_DataGrid_v1NailWarehouse.NailManagers.Models
 {
     /// <summary>
     /// Вычисляемые данные о списке <see cref="Nail"/>

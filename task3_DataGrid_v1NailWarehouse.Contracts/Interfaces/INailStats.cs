@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace task3_DataGrid_v1NailWarehouse.Interfaces
+namespace task3_DataGrid_v1NailWarehouse.Contracts.Interfaces
 {
     /// <summary>
     /// Интерфейс для вычисляемых данных о списке <see cref="Nail"/>

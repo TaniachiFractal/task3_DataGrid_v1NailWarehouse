@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using task3_DataGrid_v1NailWarehouse.Classes;
-using task3_DataGrid_v1NailWarehouse.Interfaces;
-using task3_DataGrid_v1NailWarehouse.Models;
+using task3_DataGrid_v1NailWarehouse.Contracts.Interfaces;
+using task3_DataGrid_v1NailWarehouse.Contracts.Models;
 
 namespace task3_DataGrid_v1NailWarehouse.Forms
 {
@@ -97,7 +97,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
             if (nailsDGV.SelectedRows.Count > 0)
             {
                 var nail = GetSelectedNail();
-                var nailDataEditForm = new NailDataEditForm((Nail)nail);
+                var nailDataEditForm = new NailDataEditForm(nail);
                 if (nailDataEditForm.ShowDialog(this) == DialogResult.OK)
                 {
                     await nailManager.EditAsync(nailDataEditForm.CurrNail);

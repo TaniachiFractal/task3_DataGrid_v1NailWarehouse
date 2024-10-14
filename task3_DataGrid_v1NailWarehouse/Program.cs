@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using task3_DataGrid_v1NailWarehouse.Forms;
-using task3_DataGrid_v1NailWarehouse.Manager;
-using task3_DataGrid_v1NailWarehouse.Memory;
+using task3_DataGrid_v1NailWarehouse.Memory.Memory;
 
 namespace task3_DataGrid_v1NailWarehouse
 {
@@ -17,7 +16,7 @@ namespace task3_DataGrid_v1NailWarehouse
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var storage = new MemoryNailStorage();
-            var manager = new NailManager(storage);
+            var manager = new NailManagers.Managers.NailManager(storage);
             Application.Run(new MainForm(manager));
         }
     }

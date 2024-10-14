@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace task3_DataGrid_v1NailWarehouse.Models
+namespace task3_DataGrid_v1NailWarehouse.Contracts.Models
 {
     /// <summary>
     /// Класс объекта гвоздя

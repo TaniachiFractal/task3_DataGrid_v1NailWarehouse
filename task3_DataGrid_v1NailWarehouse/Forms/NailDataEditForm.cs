@@ -2,7 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using task3_DataGrid_v1NailWarehouse.Classes;
-using task3_DataGrid_v1NailWarehouse.Models;
+using task3_DataGrid_v1NailWarehouse.Constants;
+using task3_DataGrid_v1NailWarehouse.Contracts.Models;
 
 namespace task3_DataGrid_v1NailWarehouse.Forms
 {
@@ -61,7 +62,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
                 e.Font,
                 new SolidBrush(e.ForeColor),
                 e.Bounds.X,
-                e.Bounds.Y + Constants.ComboboxYmargin);
+                e.Bounds.Y + Constant.ComboboxYmargin);
 
         }
 

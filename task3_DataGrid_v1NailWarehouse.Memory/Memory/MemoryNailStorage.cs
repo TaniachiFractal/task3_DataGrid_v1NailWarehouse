@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using task3_DataGrid_v1NailWarehouse.Interfaces;
-using task3_DataGrid_v1NailWarehouse.Models;
+using task3_DataGrid_v1NailWarehouse.Contracts.Interfaces;
+using task3_DataGrid_v1NailWarehouse.Contracts.Models;
 
-namespace task3_DataGrid_v1NailWarehouse.Memory
+namespace task3_DataGrid_v1NailWarehouse.Memory.Memory
 {
     /// <summary>
     /// Хранилище данных о <see cref="Nail"/>

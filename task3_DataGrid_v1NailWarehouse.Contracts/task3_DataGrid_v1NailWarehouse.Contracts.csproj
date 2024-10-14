@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{705DAA0D-217D-43A6-A72C-57BFD277C8C2}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>task3_DataGrid_v1NailWarehouse</RootNamespace>
-    <AssemblyName>task3_DataGrid_v1NailWarehouse</AssemblyName>
+    <ProjectGuid>{724180E5-143F-451D-B84F-26387CFC282D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>task3_DataGrid_v1NailWarehouse.Contracts</RootNamespace>
+    <AssemblyName>task3_DataGrid_v1NailWarehouse.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -35,7 +35,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\nail.ico</ApplicationIcon>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -51,38 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\DataGenerator.cs" />
-    <Compile Include="Classes\Extensions.cs" />
-    <Compile Include="Classes\Misc.cs" />
-    <Compile Include="Forms\InfoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\InfoForm.Designer.cs">
-      <DependentUpon>InfoForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\NailDataEditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\NailDataEditForm.Designer.cs">
-      <DependentUpon>NailDataEditForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Interfaces\INailManager.cs" />
+    <Compile Include="Interfaces\INailStats.cs" />
+    <Compile Include="Interfaces\INailStorage.cs" />
+    <Compile Include="Models\Material.cs" />
+    <Compile Include="Models\Nail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\InfoForm.resx">
-      <DependentUpon>InfoForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NailDataEditForm.resx">
-      <DependentUpon>NailDataEditForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -104,33 +78,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\x.png" />
-    <None Include="Resources\nail.png" />
-    <None Include="Resources\edit.png" />
-    <None Include="Resources\+.png" />
-    <None Include="Resources\x.ico" />
-    <None Include="Resources\nail.ico" />
-    <None Include="Resources\edit.ico" />
-    <None Include="Resources\+.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\task3_DataGrid_v1NailWarehouse.Constants\task3_DataGrid_v1NailWarehouse.Constants.csproj">
-      <Project>{f0bae7ad-1807-4fbb-a82a-b2e650339677}</Project>
-      <Name>task3_DataGrid_v1NailWarehouse.Constants</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\task3_DataGrid_v1NailWarehouse.Contracts\task3_DataGrid_v1NailWarehouse.Contracts.csproj">
-      <Project>{724180e5-143f-451d-b84f-26387cfc282d}</Project>
-      <Name>task3_DataGrid_v1NailWarehouse.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\task3_DataGrid_v1NailWarehouse.Memory\task3_DataGrid_v1NailWarehouse.Memory.csproj">
-      <Project>{B6EAA97D-76D7-4E22-9022-A52DB6F361A9}</Project>
-      <Name>task3_DataGrid_v1NailWarehouse.Memory</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\task3_DataGrid_v1NailWarehouse.NailManager\task3_DataGrid_v1NailWarehouse.NailManagers.csproj">
-      <Project>{6c792eb0-5778-4c8a-9476-35b2147632e3}</Project>
-      <Name>task3_DataGrid_v1NailWarehouse.NailManagers</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using task3_DataGrid_v1NailWarehouse.Classes;
-using task3_DataGrid_v1NailWarehouse.Interfaces;
-using task3_DataGrid_v1NailWarehouse.Memory;
-using task3_DataGrid_v1NailWarehouse.Models;
+using task3_DataGrid_v1NailWarehouse.Constants;
+using task3_DataGrid_v1NailWarehouse.Contracts.Interfaces;
+using task3_DataGrid_v1NailWarehouse.Contracts.Models;
+using task3_DataGrid_v1NailWarehouse.NailManagers.Models;
 
-namespace task3_DataGrid_v1NailWarehouse.Manager
+namespace task3_DataGrid_v1NailWarehouse.NailManagers.Managers
 {
     /// <summary>
     /// Класс прослойки между <see cref="MemoryNailStorage"/> и представлением
@@ -64,7 +64,7 @@ namespace task3_DataGrid_v1NailWarehouse.Manager
             {
                 FullCount = result.Count,
                 FullSummaryNoTax = result.Sum(nail => nail.Price * nail.Count),
-                FullSummaryWithTax = result.Sum(nail => (nail.Price + (nail.Price * Constants.Tax)) * nail.Count),
+                FullSummaryWithTax = result.Sum(nail => (nail.Price + (nail.Price * Constant.Tax)) * nail.Count),
             };
         }
     }

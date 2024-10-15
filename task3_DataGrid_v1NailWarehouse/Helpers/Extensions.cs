@@ -4,8 +4,8 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Windows.Forms;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace task3_DataGrid_v1NailWarehouse.Classes
 {
@@ -33,8 +33,8 @@ namespace task3_DataGrid_v1NailWarehouse.Classes
             if (errorProvider != null)
             {
                 var sourcePropertyInfo = source.GetType().GetProperty(sourceName);
-                var validarors = sourcePropertyInfo.GetCustomAttributes<ValidationAttribute>();
-                if (validarors?.Any() == true)
+                var validators = sourcePropertyInfo?.GetCustomAttributes<ValidationAttribute>();
+                if (validators?.Any() == true)
                 {
                     target.Validating += (sender, args) =>
                     {

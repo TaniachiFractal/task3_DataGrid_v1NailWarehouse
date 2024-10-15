@@ -6,19 +6,13 @@ namespace task3_DataGrid_v1NailWarehouse.NailManagers.Models
     /// </summary>
     public class NailStats : INailStats
     {
-        /// <summary>
         /// <inheritdoc cref="INailStats.FullCount"/>
-        /// </summary>
         public decimal FullCount { get; set; }
 
-        /// <summary>
         /// <inheritdoc cref="INailStats.FullSummaryNoTax"/>
-        /// </summary>
         public decimal FullSummaryNoTax { get; set; }
 
-        /// <summary>
         /// <inheritdoc cref="INailStats.FullSummaryWithTax"/>
-        /// </summary>
         public decimal FullSummaryWithTax { get; set; }
     }
 }

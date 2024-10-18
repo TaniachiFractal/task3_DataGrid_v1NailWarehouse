@@ -54,25 +54,6 @@ namespace task3_DataGrid_v1NailWarehouse.Classes
         }
 
         /// <summary>
-        /// Получить имя нужного поля
-        /// </summary>
-        private static string GetMemberName<TItem, TMember>(Expression<Func<TItem, TMember>> targetMember)
-        {
-            if (targetMember.Body is MemberExpression memberExpression)
-            {
-                return memberExpression.Member.Name;
-            }
-
-            if (targetMember.Body is UnaryExpression unaryExpression)
-            {
-                var operand = unaryExpression.Operand as MemberExpression;
-                return operand.Member.Name;
-            }
-
-            throw new ArgumentException();
-        }
-
-        /// <summary>
         /// Получить описание поля enum
         /// </summary>
         public static string GetDescription<T>(this T enumValue)
@@ -97,6 +78,24 @@ namespace task3_DataGrid_v1NailWarehouse.Classes
         }
         //https://blog.hildenco.com/2018/07/getting-enum-descriptions-using-c.html
 
+        /// <summary>
+        /// Получить имя нужного поля
+        /// </summary>
+        private static string GetMemberName<TItem, TMember>(Expression<Func<TItem, TMember>> targetMember)
+        {
+            if (targetMember.Body is MemberExpression memberExpression)
+            {
+                return memberExpression.Member.Name;
+            }
+
+            if (targetMember.Body is UnaryExpression unaryExpression)
+            {
+                var operand = unaryExpression.Operand as MemberExpression;
+                return operand.Member.Name;
+            }
+
+            throw new ArgumentException();
+        }
 
     }
 }

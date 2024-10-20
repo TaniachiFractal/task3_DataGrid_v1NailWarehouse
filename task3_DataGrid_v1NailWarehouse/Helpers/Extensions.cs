@@ -7,13 +7,14 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace task3_DataGrid_v1NailWarehouse.Classes
+namespace task3_DataGrid_v1NailWarehouse.Helpers
 {
     /// <summary>
     /// Расширения для различных классов
     /// </summary>
     public static class Extensions
     {
+
         /// <summary>
         /// Создание связки двух полей
         /// </summary>
@@ -55,6 +56,7 @@ namespace task3_DataGrid_v1NailWarehouse.Classes
 
         /// <summary>
         /// Получить описание поля enum
+        /// <see cref="https://blog.hildenco.com/2018/07/getting-enum-descriptions-using-c.html"/>
         /// </summary>
         public static string GetDescription<T>(this T enumValue)
             where T : struct, IConvertible
@@ -76,7 +78,6 @@ namespace task3_DataGrid_v1NailWarehouse.Classes
 
             return description;
         }
-        //https://blog.hildenco.com/2018/07/getting-enum-descriptions-using-c.html
 
         /// <summary>
         /// Получить имя нужного поля

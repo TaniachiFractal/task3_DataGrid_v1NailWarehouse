@@ -6,7 +6,7 @@ using task3_DataGrid_v1NailWarehouse.Contracts.Models;
 namespace task3_DataGrid_v1NailWarehouse.Contracts.Interfaces
 {
     /// <summary>
-    /// Интерфейс прослойки между <see cref="MemoryNailStorage"/> и представлением
+    /// Интерфейс прослойки между хранилищем и представлением
     /// </summary>
     public interface INailManager
     {

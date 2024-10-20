@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using task3_DataGrid_v1NailWarehouse.Classes;
+using task3_DataGrid_v1NailWarehouse.Helpers;
 using task3_DataGrid_v1NailWarehouse.Contracts.Interfaces;
 using task3_DataGrid_v1NailWarehouse.Contracts.Models;
 
@@ -12,12 +12,12 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
     /// </summary>
     public partial class MainForm : Form
     {
-        private readonly INailManager nailManager;
 
+        private readonly INailManager nailManager;
         private readonly BindingSource nailBindingSource;
 
         /// <summary>
-        /// Конструктор
+        /// Конструктор главной формы
         /// </summary>
         public MainForm(INailManager manager)
         {

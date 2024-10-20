@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using task3_DataGrid_v1NailWarehouse.Classes;
+using task3_DataGrid_v1NailWarehouse.Helpers;
 using task3_DataGrid_v1NailWarehouse.Contracts.Models;
 
 namespace task3_DataGrid_v1NailWarehouse.Forms
@@ -20,7 +20,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
         public Nail CurrNail => currNail;
 
         /// <summary>
-        /// Конструктор
+        /// Конструктор формы помощи
         /// </summary>
         public NailDataEditForm(Nail outNail = null)
         {
@@ -28,7 +28,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
 
             currNail = outNail == null ?
                 DataGenerator.CreateNail()
-                : new Nail
+                : new Nail()
                 {
                     Id = outNail.Id,
                     Name = outNail.Name,

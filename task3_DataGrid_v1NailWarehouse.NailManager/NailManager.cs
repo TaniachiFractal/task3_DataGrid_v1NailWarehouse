@@ -6,7 +6,7 @@ using task3_DataGrid_v1NailWarehouse.Contracts.Interfaces;
 using task3_DataGrid_v1NailWarehouse.Contracts.Models;
 using task3_DataGrid_v1NailWarehouse.NailManagers.Models;
 
-namespace task3_DataGrid_v1NailWarehouse.NailManagers.Managers
+namespace task3_DataGrid_v1NailWarehouse.NailManagers
 {
     /// <inheritdoc cref="INailManager"/>
     public class NailManager : INailManager
@@ -22,29 +22,29 @@ namespace task3_DataGrid_v1NailWarehouse.NailManagers.Managers
             this.nailStorage = nailStorage;
         }
 
-        /// <inheritdoc cref="INailManager.AddAsync(Nail)"/>
+        /// <inheritdoc/>
         public async Task<Nail> AddAsync(Nail person)
         {
             var result = await nailStorage.AddAsync(person);
             return result;
         }
 
-        /// <inheritdoc cref="INailManager.DeleteAsync(Guid)"/>
+        /// <inheritdoc/>
         public async Task<bool> DeleteAsync(Guid id)
         {
             var result = await nailStorage.DeleteAsync(id);
             return result;
         }
 
-        /// <inheritdoc cref="INailManager.EditAsync(Nail)"/>
+        /// <inheritdoc/>
         public Task EditAsync(Nail person)
             => nailStorage.EditAsync(person);
 
-        /// <inheritdoc cref="INailManager.GetAllAsync()"/>
+        /// <inheritdoc/>
         public Task<IReadOnlyCollection<Nail>> GetAllAsync()
             => nailStorage.GetAllAsync();
 
-        /// <inheritdoc cref="INailManager.GetStatsAsync()"/>
+        /// <inheritdoc/>
         public async Task<INailStats> GetStatsAsync()
         {
             var result = await nailStorage.GetAllAsync();

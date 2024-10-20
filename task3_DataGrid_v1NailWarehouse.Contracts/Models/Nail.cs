@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace task3_DataGrid_v1NailWarehouse.Contracts.Models
@@ -23,24 +24,29 @@ namespace task3_DataGrid_v1NailWarehouse.Contracts.Models
         /// <summary>
         /// Длина в миллиметрах
         /// </summary>
+        [Range(0, 100000000)]
         public decimal Length { get; set; }
 
         /// <inheritdoc cref="Models.Material"/>
+        [Range(0, 100000000)]
         public Material Material { get; set; }
 
         /// <summary>
         /// Количество на складе
         /// </summary>
+        [Range(0, 100000000)]
         public decimal Count { get; set; }
 
         /// <summary>
         /// Минимальный предел количества
         /// </summary>
+        [Range(0, 100000000)]
         public decimal MinCount { get; set; }
 
         /// <summary>
         /// Цена без НДС
         /// </summary>
+        [Range(0, 100000000)]
         public decimal Price { get; set; }
 
         /// <summary>
@@ -61,5 +67,15 @@ namespace task3_DataGrid_v1NailWarehouse.Contracts.Models
         /// Создать гвоздь
         /// </summary>
         public Nail() { }
+
+        /// <summary>
+        /// Проверка полей
+        /// </summary>
+        public bool Validate()
+        {
+            var context = new ValidationContext(this, serviceProvider: null, items: null);
+            var results = new List<ValidationResult>();
+            return Validator.TryValidateObject(this, context, results, true);
+        }
     }
 }

@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Managers\NailManager.cs" />
+    <Compile Include="NailManager.cs" />
     <Compile Include="Models\NailStats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -75,10 +75,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\task3_DataGrid_v1NailWarehouse.Constants\task3_DataGrid_v1NailWarehouse.Constants.csproj">
-      <Project>{f0bae7ad-1807-4fbb-a82a-b2e650339677}</Project>
-      <Name>task3_DataGrid_v1NailWarehouse.Constants</Name>
-    </ProjectReference>
     <ProjectReference Include="..\task3_DataGrid_v1NailWarehouse.Contracts\task3_DataGrid_v1NailWarehouse.Contracts.csproj">
       <Project>{724180E5-143F-451D-B84F-26387CFC282D}</Project>
       <Name>task3_DataGrid_v1NailWarehouse.Contracts</Name>

@@ -17,7 +17,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
         private readonly BindingSource nailBindingSource;
 
         /// <summary>
-        /// Инициализация формы 
+        /// Конструктор
         /// </summary>
         public MainForm(INailManager manager)
         {

@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using task3_DataGrid_v1NailWarehouse.Classes;
-using task3_DataGrid_v1NailWarehouse.Constants;
 using task3_DataGrid_v1NailWarehouse.Contracts.Models;
 
 namespace task3_DataGrid_v1NailWarehouse.Forms
@@ -12,6 +11,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
     /// </summary>
     public partial class NailDataEditForm : Form
     {
+        public const int ComboboxPadding = 3;
         private readonly Nail currNail;
 
         /// <summary>
@@ -20,7 +20,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
         public Nail CurrNail => currNail;
 
         /// <summary>
-        /// Инициализация формы
+        /// Конструктор
         /// </summary>
         public NailDataEditForm(Nail outNail = null)
         {
@@ -62,7 +62,7 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
                 e.Font,
                 new SolidBrush(e.ForeColor),
                 e.Bounds.X,
-                e.Bounds.Y + Constant.ComboboxYmargin);
+                e.Bounds.Y + ComboboxPadding);
 
         }
 
@@ -71,24 +71,11 @@ namespace task3_DataGrid_v1NailWarehouse.Forms
         /// </summary>
         private void OkButton_Click(object sender, EventArgs e)
         {
-            var success = true;
-            foreach (Control c in Controls)
-            {
-                if (errorProvider.GetError(c).Length > 0)
-                {
-                    success = false;
-                    break;
-                }
-            }
-
-            if (success)
+            if (currNail.Validate())
             {
                 DialogResult = DialogResult.OK;
                 Close();
             }
-            else
-            { Close(); }
-
         }
 
     }

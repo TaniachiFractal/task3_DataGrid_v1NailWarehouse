@@ -7,33 +7,25 @@ using task3_DataGrid_v1NailWarehouse.Contracts.Models;
 
 namespace task3_DataGrid_v1NailWarehouse.Memory.Memory
 {
-    /// <summary>
-    /// Хранилище данных о <see cref="Nail"/>
-    /// </summary>
+    /// <inheritdoc cref="INailStorage"/>
     public class MemoryNailStorage : INailStorage
     {
         private readonly List<Nail> nails;
 
         /// <summary>
-        /// Конструктор: Инициализация списка
+        /// Конструктор
         /// </summary>
         public MemoryNailStorage()
         {
             nails = new List<Nail>();
         }
 
-        /// <summary>
-        /// <inheritdoc cref="INailStorage.AddAsync(Nail)"/>
-        /// </summary>
         public Task<Nail> AddAsync(Nail nail)
         {
             nails.Add(nail);
             return Task.FromResult(nail);
         }
 
-        /// <summary>
-        /// <inheritdoc cref="INailStorage.DeleteAsync(Guid)"/>
-        /// </summary>
         public Task<bool> DeleteAsync(Guid id)
         {
             var nail = nails.FirstOrDefault(x => x.Id == id);
@@ -45,13 +37,10 @@ namespace task3_DataGrid_v1NailWarehouse.Memory.Memory
             return Task.FromResult(false);
         }
 
-        /// <summary>
-        /// <inheritdoc cref="INailStorage.EditAsync(Nail)"/>
-        /// </summary>
         public Task EditAsync(Nail nail)
         {
             var target = nails.FirstOrDefault(n => n.Id == nail.Id);
-            if (nail != null)
+            if (nail != null && target != null)
             {
                 target.Name = nail.Name;
                 target.Length = nail.Length;
@@ -63,9 +52,6 @@ namespace task3_DataGrid_v1NailWarehouse.Memory.Memory
             return Task.CompletedTask;
         }
 
-        /// <summary>
-        /// <inheritdoc cref="INailStorage.GetAllAsync()"/>
-        /// </summary>
         public Task<IReadOnlyCollection<Nail>> GetAllAsync()
             => Task.FromResult<IReadOnlyCollection<Nail>>(nails);
 

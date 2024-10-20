@@ -51,9 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\DataGenerator.cs" />
-    <Compile Include="Classes\Extensions.cs" />
-    <Compile Include="Classes\Misc.cs" />
+    <Compile Include="Helpers\DataGenerator.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Forms\InfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,9 +75,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\InfoForm.resx">
       <DependentUpon>InfoForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NailDataEditForm.resx">
       <DependentUpon>NailDataEditForm.cs</DependentUpon>
@@ -115,10 +116,6 @@
     <None Include="Resources\+.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\task3_DataGrid_v1NailWarehouse.Constants\task3_DataGrid_v1NailWarehouse.Constants.csproj">
-      <Project>{f0bae7ad-1807-4fbb-a82a-b2e650339677}</Project>
-      <Name>task3_DataGrid_v1NailWarehouse.Constants</Name>
-    </ProjectReference>
     <ProjectReference Include="..\task3_DataGrid_v1NailWarehouse.Contracts\task3_DataGrid_v1NailWarehouse.Contracts.csproj">
       <Project>{724180e5-143f-451d-b84f-26387cfc282d}</Project>
       <Name>task3_DataGrid_v1NailWarehouse.Contracts</Name>

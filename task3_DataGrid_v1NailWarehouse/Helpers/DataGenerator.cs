@@ -1,7 +1,7 @@
 ﻿using System;
 using task3_DataGrid_v1NailWarehouse.Contracts.Models;
 
-namespace task3_DataGrid_v1NailWarehouse.Classes
+namespace task3_DataGrid_v1NailWarehouse.Helpers
 {
     /// <summary>
     /// Помощник для генерации данных

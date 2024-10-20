@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using task3_DataGrid_v1NailWarehouse.Contracts.Interfaces;
 using task3_DataGrid_v1NailWarehouse.Contracts.Models;
 
-namespace task3_DataGrid_v1NailWarehouse.Memory.Memory
+namespace task3_DataGrid_v1NailWarehouse.Memory
 {
     /// <inheritdoc cref="INailStorage"/>
     public class MemoryNailStorage : INailStorage
@@ -20,12 +20,14 @@ namespace task3_DataGrid_v1NailWarehouse.Memory.Memory
             nails = new List<Nail>();
         }
 
+        /// <inheritdoc/>
         public Task<Nail> AddAsync(Nail nail)
         {
             nails.Add(nail);
             return Task.FromResult(nail);
         }
 
+        /// <inheritdoc/>
         public Task<bool> DeleteAsync(Guid id)
         {
             var nail = nails.FirstOrDefault(x => x.Id == id);
@@ -37,6 +39,7 @@ namespace task3_DataGrid_v1NailWarehouse.Memory.Memory
             return Task.FromResult(false);
         }
 
+        /// <inheritdoc/>
         public Task EditAsync(Nail nail)
         {
             var target = nails.FirstOrDefault(n => n.Id == nail.Id);
@@ -48,10 +51,12 @@ namespace task3_DataGrid_v1NailWarehouse.Memory.Memory
                 target.Count = nail.Count;
                 target.MinCount = nail.MinCount;
                 target.Price = nail.Price;
+                return Task.CompletedTask;
             }
-            return Task.CompletedTask;
+            return null;
         }
 
+        /// <inheritdoc/>
         public Task<IReadOnlyCollection<Nail>> GetAllAsync()
             => Task.FromResult<IReadOnlyCollection<Nail>>(nails);
 

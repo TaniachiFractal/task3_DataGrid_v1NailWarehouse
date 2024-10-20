@@ -50,25 +50,6 @@ namespace task3_DataGrid_v1NailWarehouse.Contracts.Models
         public decimal Price { get; set; }
 
         /// <summary>
-        /// Создать копию гвоздя
-        /// </summary>
-        public Nail(Nail nail)
-        {
-            Id = nail.Id;
-            Name = nail.Name;
-            Length = nail.Length;
-            Material = nail.Material;
-            Count = nail.Count;
-            MinCount = nail.MinCount;
-            Price = nail.Price;
-        }
-
-        /// <summary>
-        /// Создать гвоздь
-        /// </summary>
-        public Nail() { }
-
-        /// <summary>
         /// Проверка полей
         /// </summary>
         public bool Validate()

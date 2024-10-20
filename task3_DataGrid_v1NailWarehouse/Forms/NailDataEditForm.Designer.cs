@@ -296,7 +296,7 @@
             this.MinimizeBox = false;
             this.Name = "NailDataEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "7";
+            this.Text = "Редактирование данных товара в реестре";
             this.panelBottom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureNail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.countNUD)).EndInit();

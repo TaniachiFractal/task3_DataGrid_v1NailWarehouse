@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using task3_DataGrid_v1NailWarehouse.Helpers;
 using task3_DataGrid_v1NailWarehouse.Contracts.Interfaces;
 using task3_DataGrid_v1NailWarehouse.Contracts.Models;
+using task3_DataGrid_v1NailWarehouse.Helpers;
 
 namespace task3_DataGrid_v1NailWarehouse.Forms
 {
